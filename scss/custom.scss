@@ -1,0 +1,42 @@
+// 1. Sobrescribir variables de Bootstrap
+$primary-color: #003366;
+$secondary-color: #FFD700;
+
+// 2. Importar Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+/* Variables de Bootstrap sobrescritas */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: $primary-color !important;
+}
+
+.navbar-brand, .nav-link {
+    color: $secondary-color !important;
+}
+
+header {
+    background: linear-gradient(90deg, $primary-color, #0055A4);
+}
+
+h1, h2 {
+    color: $primary-color;
+}
+
+.card {
+    border: 2px solid $primary-color;
+}
+
+.card-title {
+    color: $primary-color;
+    font-weight: bold;
+}
+
+footer {
+    background-color: $primary-color;
+    color: white;
+}
