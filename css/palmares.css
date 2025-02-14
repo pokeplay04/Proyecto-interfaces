@@ -1,0 +1,48 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+
+.trophy {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.trophy img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 576px) {
+    .trophy img {
+        width: 150px;
+    }
+    .card {
+        margin-bottom: 20px;
+    }
+}
+
+/* Media Query para pantallas medianas */
+@media (min-width: 576px) and (max-width: 992px) {
+    .trophy img {
+        width: 200px;
+    }
+}
+
+/* Media Query para pantallas grandes */
+@media (min-width: 992px) {
+    .trophy img {
+        width: 250px;
+    }
+}
