@@ -10,7 +10,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #007bff;
+    color: #f7cc47;
 }
 
 .trophy {
@@ -21,6 +21,32 @@ h1 {
 .trophy img {
     max-width: 100%;
     height: auto;
+}
+
+.title-container {
+    margin-bottom: 20px;
+}
+.custom-img {
+    width: 60%;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+.card {
+    margin-bottom: 20px;
+    height: 150px;
+    cursor: pointer;
+}
+.popup-img {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80%;
+    max-height: 80%;
+    background: white;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
 }
 
 /* Media Query para pantallas pequeñas */
