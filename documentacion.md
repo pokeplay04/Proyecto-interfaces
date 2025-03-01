@@ -340,9 +340,13 @@ Y esta de cuando terminé
 ![image](https://github.com/user-attachments/assets/fbf1477f-40b9-4dc7-9e20-a56cd75ef091)
 
 
+# BIBLIOGRAFÍA
 
+[Enlace accesibilidad](https://www.eniun.com/tutorial-accesibilidad-web/) 
 
+[Enlace usabilidad](https://www.eniun.com/tutorial-usabilidad-web/)
 
+[Video personalización Bootstrap](https://www.youtube.com/watch?v=1kNwZbRiVcQ)
 
-
+[Idea de las transiciones de las cards](https://www.w3schools.com/css/css3_transitions.asp)
 
