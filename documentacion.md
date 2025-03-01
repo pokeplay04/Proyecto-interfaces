@@ -1,197 +1,314 @@
-# Documentación del Sitio Web del Real Madrid
+# Documentación Detallada del Sitio Web del Real Madrid
 
-## Descripción General del Proyecto
-Este sitio web está dedicado al Real Madrid Club de Fútbol, proporcionando información sobre la historia del equipo, la plantilla actual y sus logros. El sitio presenta un diseño responsive utilizando Bootstrap 5 y estilos CSS personalizados.
+## Estructura HTML Detallada
 
-## Estructura del Sitio
+### 1. Componentes Comunes
 
-### Páginas
-1. **Página Principal (index.html)**
-   - Sección hero con mensaje de bienvenida
-   - Sección multimedia con ubicación del estadio y himno del club
-   - Sección de últimas noticias
-   - Barra de navegación responsive
-
-2. **Página de Plantilla (plantilla.html)**
-   - Sección de plantilla actual con tarjetas interactivas de jugadores
-   - Sección de jugadores históricos
-   - Estadísticas interactivas al pasar el ratón
-   - Efectos de entrada animados para las tarjetas
-
-3. **Página de Historia (historia.html)**
-   - Línea temporal de la historia del club
-   - Diseño responsive para todos los dispositivos
-
-4. **Página de Palmarés (palmares.html)**
-   - Exhibición de todos los títulos y trofeos del club
-   - Presentación organizada de trofeos
-
-## Características
-
-### Sistema de Chat
-- **Interfaz de Usuario**
-  - Ventana de chat flotante en la esquina inferior derecha
-  - Botón de minimizar/maximizar
-  - Indicador de estado de conexión
-  - Campo de entrada de texto con botón de envío
-
-- **Funcionalidades**
-  - Chat en tiempo real entre usuarios
-  - Historial de mensajes persistente
-  - Notificaciones de nuevos mensajes
-  - Emojis y formato básico de texto
-  - Indicador de "escribiendo..."
-
-- **Características Técnicas**
-  - Conexión WebSocket para comunicación en tiempo real
-  - Almacenamiento local para historial de chat
-  - Gestión de sesiones de usuario
-  - Sistema de notificaciones push
-
-### Navegación
-- Barra de navegación fija en la parte superior
-- Menú hamburguesa responsive para dispositivos móviles
-- Indicación de página activa
-- Logo de la marca con enlace a la página principal
-
-### Tarjetas de Jugadores (plantilla.html)
-- Efectos interactivos al pasar el ratón
-- Ventana emergente de estadísticas
-- Información del jugador incluyendo:
-  - Imagen
-  - Nombre
-  - Posición
-  - Estadísticas (partidos, goles, asistencias)
-- Efectos de entrada animados
-
-### Integración Multimedia
-- Integración de Google Maps para la ubicación del estadio
-- Video de YouTube integrado para el himno del club
-- Iframes responsive
-
-## Implementación Técnica
-
-### Estructura CSS
-- **custom.css**: Estilos principales para la página de inicio
-- **plantilla.css**: Estilos para tarjetas de jugadores y animaciones
-- **historia.css**: Estilos para la línea temporal y página de historia
-- **palmares.css**: Estilos para la visualización de trofeos
-- **footer.css**: Estilos comunes del pie de página
-- **chat.css**: Estilos para el sistema de chat
-
-## Explicación Detallada del Código por Página
-
-### 1. Página Principal (index.html)
+#### 1.1 Barra de Navegación
 ```html
-<!-- Estructura de la Barra de Navegación -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="#">Real Madrid</a>
-        <!-- Botón para móviles -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
 </nav>
 ```
-La barra de navegación utiliza Bootstrap 5 con las clases `navbar-expand-lg` para expansión en pantallas grandes y `fixed-top` para mantenerla fija. El botón hamburguesa aparece en dispositivos móviles.
 
-### 2. Página de Plantilla (plantilla.html)
-```javascript
-// Sistema de Tarjetas de Jugadores
-document.addEventListener("DOMContentLoaded", function () {
-    const players = document.querySelectorAll(".player-card");
-    players.forEach((card, index) => {
-        // Añade retraso en la animación para cada tarjeta
-        card.style.animationDelay = `${index * 0.1}s`;
-    });
-});
+**Explicación detallada:**
+- `navbar-expand-lg`: Expande la barra de navegación en pantallas grandes (≥992px)
+- `navbar-dark bg-dark`: Tema oscuro para mejor contraste
+- `fixed-top`: Mantiene la barra de navegación fija en la parte superior
+- `navbar-toggler`: Botón hamburguesa que aparece en dispositivos móviles
 
-// Ventana emergente de estadísticas
-const statsPopup = document.getElementById("player-stats");
-document.querySelectorAll(".player-card").forEach(card => {
-    card.addEventListener("mouseover", function (event) {
-        // Muestra estadísticas al pasar el ratón
-        statsPopup.innerText = this.getAttribute("data-stats");
-        statsPopup.style.display = "block";
-        statsPopup.style.top = event.pageY + "px";
-        statsPopup.style.left = event.pageX + "px";
-    });
-});
-```
-El código implementa animaciones secuenciales para las tarjetas de jugadores y una ventana emergente con estadísticas.
-
-### 3. Página de Historia (historia.html)
-```javascript
-// Animaciones de la línea temporal
-document.addEventListener("DOMContentLoaded", function () {
-    const items = document.querySelectorAll(".timeline-item");
-    function showOnScroll() {
-        items.forEach(item => {
-            const rect = item.getBoundingClientRect();
-            // Muestra elementos cuando entran en el viewport
-            if (rect.top <= window.innerHeight * 0.8) {
-                item.classList.add("visible");
-            }
-        });
-    }
-    window.addEventListener("scroll", showOnScroll);
-    showOnScroll();
-});
-```
-Implementa animaciones de aparición progresiva para los elementos de la línea temporal al hacer scroll.
-
-### 4. Página de Palmarés (palmares.html)
-```javascript
-// Sistema de visualización de imágenes
-function showImage(src) {
-    const popupImg = document.getElementById('popupImg');
-    popupImg.src = src;
-    popupImg.classList.add('show');
-}
-
-function hideImage() {
-    document.getElementById('popupImg').classList.remove('show');
-}
-```
-Gestiona la visualización de imágenes en modo popup al hacer clic en los trofeos.
-
-### Sistema de Chat
-```javascript
-// Inicialización del chat
-const chatInit = () => {
-    const socket = new WebSocket('ws://servidor-chat');
-    socket.onmessage = (event) => {
-        mostrarMensaje(JSON.parse(event.data));
-    };
-};
-```
-Implementa la conexión WebSocket para el chat en tiempo real.
+#### 1.2 Pie de Página
+```html
+<footer class="footer bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Real Madrid CF</h5>
+                <p>© 2024 Todos los derechos reservados</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Redes Sociales</h5>
+                <div class="social-links">
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 ```
 
-### Dependencias
-- Bootstrap 5.3.0
-- CSS/SCSS personalizado
-- Iconos de Font Awesome
-- Socket.IO para el chat en tiempo real
+**Características:**
+- Diseño responsive con sistema de rejilla Bootstrap
+- Integración de iconos de Font Awesome para redes sociales
+- Espaciado consistente con clases utilitarias de Bootstrap
 
-## Diseño Responsive
-- Enfoque mobile-first
-- Puntos de ruptura:
-  - xs: < 576px
-  - sm: ≥ 576px
-  - md: ≥ 768px
-  - lg: ≥ 992px
-  - xl: ≥ 1200px
+### 2. Página Principal (index.html)
 
-## Gestión de Recursos
-- Imágenes almacenadas en el directorio `/assets`
-- Formato webp optimizado para imágenes de jugadores
-- Carga de imágenes responsive
+#### 2.1 Sección Hero
+```html
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>Bienvenidos al Real Madrid</h1>
+        <p class="lead">El club más laureado de la historia del fútbol</p>
+    </div>
+</section>
+```
 
-## Pie de Página
-- Información de copyright
-- Enlaces a redes sociales
-- Consistente en todas las páginas
+**Características técnicas:**
+- Imagen de fondo a pantalla completa con overlay oscuro
+- Texto centrado con alto contraste
+- Animación de entrada suave para el contenido
+
+#### 2.2 Sección Multimedia
+```html
+<section class="multimedia-section container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.." 
+                        width="100%" height="450" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/..."
+                        width="100%" height="450" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+```
+**Implementación:**
+- Contenedores responsive para iframes
+- Proporción de aspecto 16:9 mantenida en todos los dispositivos
+- Lazy loading para optimización de rendimiento
+
+#### 2.3 Sección de Últimas Noticias
+```html
+<section class="news-section container my-5">
+    <h2 class="section-title text-center mb-4">Últimas Noticias</h2>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="assets/news/latest1.webp" alt="Última Noticia 1" class="img-fluid">
+                    <div class="news-date">22 Feb 2024</div>
+                </div>
+                <div class="news-content p-3">
+                    <h3 class="news-title">Victoria en Champions League</h3>
+                    <p class="news-excerpt">El Real Madrid consigue una importante victoria en octavos de final...</p>
+                    <a href="#" class="btn btn-outline-primary">Leer más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+```
 
 
+
+### 3. Página de Plantilla (plantilla.html)
+
+#### 3.1 Tarjetas de Jugadores
+```html
+<section class="players-section container my-5">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="player-card" data-stats="Goles: 15, Asistencias: 10">
+                <div class="player-image">
+                    <img src="assets/players/player1.webp" alt="Nombre Jugador">
+                </div>
+                <div class="player-info">
+                    <h3>Nombre Jugador</h3>
+                    <p class="position">Posición</p>
+                    <div class="stats">
+                        <span class="number">7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+```
+
+#### 3.2 Sistema de Estadísticas de Jugadores
+```html
+<div class="player-stats-modal" id="playerStatsModal">
+    <div class="modal-content">
+        <div class="stats-header">
+            <h4 class="player-name">Estadísticas Detalladas</h4>
+            <button class="close-btn">&times;</button>
+        </div>
+        <div class="stats-body">
+            <div class="stat-row">
+                <div class="stat-category">Partidos Jugados</div>
+                <div class="stat-value">25</div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-category">Minutos Jugados</div>
+                <div class="stat-value">2250</div>
+            </div>
+            <div class="stat-chart">
+                <canvas id="playerPerformanceChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+**Características avanzadas:**
+- Modal interactivo con estadísticas detalladas
+- Gráficos dinámicos con Chart.js
+- Animaciones de transición suaves
+- Sistema de filtrado por posición
+
+#### 3.3 Filtros y Ordenación
+```html
+<div class="filters-section mb-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <select class="form-select position-filter">
+                    <option value="all">Todas las posiciones</option>
+                    <option value="portero">Porteros</option>
+                    <option value="defensa">Defensas</option>
+                    <option value="centrocampista">Centrocampistas</option>
+                    <option value="delantero">Delanteros</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <div class="sort-buttons">
+                    <button class="btn btn-outline-primary" data-sort="number">Por Número</button>
+                    <button class="btn btn-outline-primary" data-sort="name">Por Nombre</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+**Funcionalidades:**
+- Filtrado dinámico por posición
+- Ordenación múltiple de jugadores
+- Actualización en tiempo real
+- Persistencia de filtros seleccionados
+
+**Características avanzadas:**
+- Efecto hover con transformación 3D
+- Popup de estadísticas al pasar el ratón
+- Animación secuencial de entrada
+- Optimización de imágenes con formato WebP
+
+### 4. Página de Historia (historia.html)
+
+#### 4.1 Línea Temporal
+```html
+<section class="timeline-section container my-5">
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>1902</h3>
+                <p>Fundación del Real Madrid Club de Fútbol</p>
+                <img src="assets/historia/fundacion.jpg" alt="Fundación">
+            </div>
+        </div>
+    </div>
+</section>
+```
+
+**Implementación técnica:**
+- Línea temporal vertical con conectores CSS
+- Animaciones de aparición al hacer scroll
+- Diseño alternado izquierda-derecha
+- Imágenes con lazy loading
+
+### 5. Página de Palmarés (palmares.html)
+
+#### 5.1 Galería de Trofeos
+```html
+<section class="trophies-section container my-5">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="trophy-card" onclick="showImage('assets/trophies/champions.jpg')">
+                <div class="trophy-image">
+                    <img src="assets/trophies/champions-thumb.jpg" alt="Champions League">
+                </div>
+                <div class="trophy-info">
+                    <h3>UEFA Champions League</h3>
+                    <p>14 Títulos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+```
+
+**Características:**
+- Modal de imagen a pantalla completa
+- Efecto de zoom suave al hover
+- Animación de entrada con fade
+
+#### 5.2 Sección de Estadísticas
+```html
+<section class="stats-section bg-light py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-item">
+                    <div class="stat-number">14</div>
+                    <div class="stat-label">Champions League</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-item">
+                    <div class="stat-number">35</div>
+                    <div class="stat-label">Ligas</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+```
+
+**Implementación:**
+- Animación de contador para números
+- Diseño responsive en grid de 2x2 en móvil
+- Efectos hover interactivos
+- Transiciones suaves
+
+## Optimización y Rendimiento
+
+### 1. Optimización de Imágenes
+- Uso de formato WebP para mejor compresión
+- Múltiples tamaños para diferentes dispositivos
+- Lazy loading para mejorar el tiempo de carga
+
+### 2. Rendimiento JavaScript
+- Event delegation para mejor manejo de eventos
+- Debouncing en funciones de scroll
+- Código modular y reutilizable
+
+### 3. Optimización CSS
+- Uso de CSS Grid y Flexbox
+- Variables CSS para consistencia
+- Media queries optimizadas
+
+## Accesibilidad
+
+### 1. Características Implementadas
+- Atributos ARIA apropiados
+- Alto contraste en textos
+- Navegación por teclado
+- Textos alternativos en imágenes
+
+### 2. Compatibilidad con Lectores de Pantalla
+- Estructura HTML semántica
+- Jerarquía de encabezados clara
+- Descripciones para contenido interactivo
