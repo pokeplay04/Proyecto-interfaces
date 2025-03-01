@@ -1,3 +1,9 @@
+![image](https://github.com/user-attachments/assets/2c51d25a-3e42-478b-9303-2d69abd80bfa)
+
+# PORTADA
+
+![portada](https://github.com/user-attachments/assets/df49678e-eddf-4715-bc9d-a42243cfd150)
+
 # Documentación Detallada del Sitio Web del Real Madrid
 
 ## Estructura HTML Detallada
@@ -312,3 +318,31 @@
 - Estructura HTML semántica
 - Jerarquía de encabezados clara
 - Descripciones para contenido interactivo
+
+
+# EVIDENCIAS
+- Tablero Trello
+Esta captura es de cuando comencé con la creación del proyecto
+
+![image](https://github.com/user-attachments/assets/280751ba-9f9e-445a-81c6-f0d9e99ec2db)
+
+Y esta de cuando terminé
+
+![image](https://github.com/user-attachments/assets/97a680d9-5f4b-4400-901c-f05e34e805c6)
+
+- Control de versiones en GitHub
+
+![Sin título](https://github.com/user-attachments/assets/9b9bc89a-fae4-4257-a9be-78c462db0c59)
+![image](https://github.com/user-attachments/assets/d85049c4-4011-44a1-bcea-5ebb47fcce22)
+
+- Y su guía de estilo
+
+![image](https://github.com/user-attachments/assets/fbf1477f-40b9-4dc7-9e20-a56cd75ef091)
+
+
+
+
+
+
+
+
