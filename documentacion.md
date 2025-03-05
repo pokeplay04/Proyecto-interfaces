@@ -351,7 +351,7 @@ Y esta de cuando terminé
 
 - Y su guía de estilo
 
-![image](https://github.com/user-attachments/assets/fbf1477f-40b9-4dc7-9e20-a56cd75ef091)
+![image](https://github.com/user-attachments/assets/f6b6c31d-ff9b-46bf-9868-c098ffe3d174)
 
 
 # BIBLIOGRAFÍA
