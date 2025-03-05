@@ -338,9 +338,13 @@ El sitio se despliega utilizando un proceso automatizado que incluye:
 - Tablero Trello
 Esta captura es de cuando comencé con la creación del proyecto
 
+![image](https://github.com/user-attachments/assets/75906b8e-a5ab-4a84-a9c1-12c525ebde76)
+
+- Esto fué unos dias posteriores al comienzo
+
 ![image](https://github.com/user-attachments/assets/280751ba-9f9e-445a-81c6-f0d9e99ec2db)
 
-Y esta de cuando terminé
+- Y esta de cuando terminé
 
 ![image](https://github.com/user-attachments/assets/97a680d9-5f4b-4400-901c-f05e34e805c6)
 
