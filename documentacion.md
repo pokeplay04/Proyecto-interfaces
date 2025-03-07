@@ -317,11 +317,11 @@ El desarrollo de este sitio web siguió un enfoque metodológico estructurado, p
 Se adopta una metodología ágil adaptada a nuestras necesidades específicas, con sprints semanales y revisiones regulares del progreso. Las decisiones de diseño y desarrollo se tomaron basándose en principios de usabilidad y accesibilidad, siempre considerando el impacto en la experiencia del usuario final.
 
 ### Pruebas y Calidad
-Implementamos un riguroso proceso de pruebas que incluyó:
-- Pruebas de compatibilidad cross-browser
-- Validación de accesibilidad WCAG 2.1
-- Pruebas de rendimiento y optimización
-- Evaluación de usabilidad con usuarios reales
+
+![image](https://github.com/user-attachments/assets/a4a3b912-e50a-45ec-968f-147180083181)
+![image](https://github.com/user-attachments/assets/7bdd1ae7-9474-4979-946e-c136943981d9)
+![image](https://github.com/user-attachments/assets/e74b501b-e24f-4ea2-b4fb-7b5bf35fd19b)
+![image](https://github.com/user-attachments/assets/d8d8ada3-0b1c-478a-ac7a-8648d1d3687b)
 
 ### Despliegue y Mantenimiento
 El sitio se despliega utilizando un proceso automatizado que incluye:
