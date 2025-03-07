@@ -296,10 +296,7 @@ La optimización del rendimiento ha sido una prioridad fundamental en el desarro
 ### 1. Optimización de Imágenes
 La gestión eficiente de imágenes es crucial para el rendimiento del sitio. Hemos adoptado el formato WebP como estándar principal debido a su superior tasa de compresión sin pérdida significativa de calidad. Para cada imagen importante, generamos múltiples versiones en diferentes tamaños, permitiendo que el navegador seleccione la más apropiada según el dispositivo y el contexto de visualización. La implementación de lazy loading asegura que las imágenes se carguen solo cuando son necesarias, reduciendo significativamente el tiempo de carga inicial y el consumo de datos.
 
-### 2. Rendimiento JavaScript
-Nuestro código JavaScript ha sido cuidadosamente optimizado para maximizar la eficiencia. Implementamos event delegation como patrón principal para el manejo de eventos, reduciendo la sobrecarga de memoria y mejorando la respuesta del navegador. Las funciones de scroll utilizan técnicas de debouncing para prevenir la sobrecarga del navegador durante el desplazamiento. Además, hemos estructurado el código de manera modular, facilitando su mantenimiento y reutilización en diferentes partes del sitio.
-
-### 3. Optimización CSS
+### 2. Optimización CSS
 La estructura CSS del sitio se ha desarrollado siguiendo las mejores prácticas modernas. Utilizamos CSS Grid y Flexbox para crear layouts flexibles y responsivos, reduciendo la necesidad de media queries excesivas. Las variables CSS (custom properties) se emplean extensivamente para mantener la consistencia visual y facilitar las actualizaciones globales del diseño. Las media queries han sido optimizadas para garantizar una experiencia fluida en todos los dispositivos, desde móviles hasta pantallas de escritorio.
 
 ## Accesibilidad
@@ -307,17 +304,17 @@ La estructura CSS del sitio se ha desarrollado siguiendo las mejores prácticas 
 La accesibilidad ha sido un pilar fundamental en el desarrollo de este sitio web, asegurando que sea utilizable por la mayor cantidad posible de personas, independientemente de sus capacidades o limitaciones.
 
 ### 1. Características Implementadas
-Hemos integrado exhaustivamente los atributos ARIA en toda la interfaz, proporcionando información contextual crucial para tecnologías asistivas. El diseño visual prioriza el alto contraste en textos y elementos interactivos, facilitando la lectura para usuarios con dificultades visuales. La navegación por teclado ha sido cuidadosamente implementada, permitiendo acceder a todas las funcionalidades sin necesidad de usar el ratón. Cada imagen del sitio cuenta con textos alternativos descriptivos y significativos, asegurando que ninguna información visual se pierda para usuarios que dependen de lectores de pantalla.
+Se ha integrado los atributos ARIA en toda la interfaz, proporcionando información contextual crucial para tecnologías asistivas. El diseño visual prioriza el alto contraste en textos y elementos interactivos, facilitando la lectura para usuarios con dificultades visuales. La navegación por teclado ha sido cuidadosamente implementada, permitiendo acceder a todas las funcionalidades sin necesidad de usar el ratón. Cada imagen del sitio cuenta con textos alternativos descriptivos y significativos, asegurando que ninguna información visual se pierda para usuarios que dependen de lectores de pantalla.
 
 ### 2. Compatibilidad con Lectores de Pantalla
 La estructura del sitio se ha desarrollado con un enfoque en la semántica HTML, utilizando elementos apropiados para cada tipo de contenido. La jerarquía de encabezados sigue una estructura lógica y clara, facilitando la navegación y comprensión del contenido. Todos los elementos interactivos cuentan con descripciones detalladas que comunican su propósito y funcionamiento a los usuarios de lectores de pantalla.
 
 ## Proceso de Desarrollo
 
-El desarrollo de este sitio web siguió un enfoque metodológico estructurado, priorizando la calidad del código y la experiencia del usuario. Utilizamos un sistema de control de versiones Git para gestionar el desarrollo colaborativo y mantener un historial detallado de cambios. La implementación se realizó en fases iterativas, permitiendo la evaluación y mejora continua de cada componente.
+El desarrollo de este sitio web siguió un enfoque metodológico estructurado, priorizando la calidad del código y la experiencia del usuario. Utilizo el sistema de control de versiones Git para gestionar el desarrollo y mantener un historial detallado de cambios. La implementación se realizó en fases iterativas, permitiendo la evaluación y mejora continua de cada componente.
 
 ### Metodología de Trabajo
-Adoptamos una metodología ágil adaptada a nuestras necesidades específicas, con sprints semanales y revisiones regulares del progreso. Las decisiones de diseño y desarrollo se tomaron basándose en principios de usabilidad y accesibilidad, siempre considerando el impacto en la experiencia del usuario final.
+Se adopta una metodología ágil adaptada a nuestras necesidades específicas, con sprints semanales y revisiones regulares del progreso. Las decisiones de diseño y desarrollo se tomaron basándose en principios de usabilidad y accesibilidad, siempre considerando el impacto en la experiencia del usuario final.
 
 ### Pruebas y Calidad
 Implementamos un riguroso proceso de pruebas que incluyó:
